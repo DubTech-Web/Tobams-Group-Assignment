@@ -10,9 +10,9 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Training and Development | Tobams Group",
+  title: "Tobams Group",
   description:
-    "Training and development solutions designed to enhance skills, knowledge and professional growth.",
+    "Tobams Group Solutions and Services",
   icons: {
     icon: [
       {
