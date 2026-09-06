@@ -8,7 +8,7 @@ The project focuses on accurately translating the provided design into a maintai
 
 | Resource              | Link                                                                                 |
 | --------------------- | ------------------------------------------------------------------------------------ |
-| **Live Website**      | https://tobams-group-assignment.vercel.app/ URL                                                            |
+| **Live Website**      | https://tobams-group-assignment.vercel.app/ |URL                                                            
 | **GitHub Repository** | https://github.com/DubTech-Web/Tobams-Group-Assignment                               |
 | **Figma Design**      | https://www.figma.com/design/wuqCLkK1feTgB6xxSRRwZu/Tobams-Group-Frontend-Assessment |
 
@@ -41,6 +41,7 @@ The implementation is intentionally focused on the provided static UI requiremen
 * **TypeScript** — Static type checking
 * **Tailwind CSS 4** — Utility-first styling
 * **Lucide React** — Interface icons
+* **Favico.io** - Used to generate the browser icon/logo
 
 ### Next.js Features Used
 
@@ -179,7 +180,6 @@ The following areas were considered during implementation:
 * Calls-to-action
 * Footer layout
 
-The desktop Figma layout was used as the primary visual reference while responsive behavior was added for smaller screen sizes.
 
 ### Design Deviations
 
@@ -353,7 +353,7 @@ The final implementation was reviewed and adjusted as part of the development pr
 
 ## 🧪 Quality Checks
 
-Before submission, the following checks should be performed:
+The following checks were performed to ensure code executed without error:
 
 ```bash
 npm run lint
@@ -367,7 +367,7 @@ npm run build
 npm start
 ```
 
-The application should also be visually checked at:
+The application was also visually checked at:
 
 * 425px
 * 768px
@@ -379,7 +379,7 @@ to ensure the responsive implementation remains consistent with the assessment r
 
 ## 🚀 Deployment
 
-The assessment specifies **Vercel as the preferred deployment platform**, with Netlify as an alternative.
+The assessment specifies **Vercel as the preferred deployment platform**, with Netlify as an alternative, hence the application is deployed using Vercel.
 
 
 ```text
