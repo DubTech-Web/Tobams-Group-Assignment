@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tobams Group Training and Development Page
 
-## Getting Started
+Responsive static page implementation for the Tobams Group frontend intern assessment.
 
-First, run the development server:
+## Links
+
+- Figma reference: [Frontend Intern Assessment](https://www.figma.com/design/wuqCLkK1feTgB6xxSRRwZu/Frontend-Intern-Assessment?node-id=0-1&p=f&t=qxnAKp4Ael8QtLYz-0)
+- Live URL: `Add the deployed Vercel URL here before submission`
+- Repository: `Add the public GitHub repository URL here before submission`
+
+## Stack
+
+- Next.js 16 with the App Router
+- React 19 and TypeScript
+- Tailwind CSS 4
+- `next/image` for optimized local images
+- `next/font` with Nunito
+- Lucide React for interface icons
+
+## Setup
+
+Requirements: Node.js 20 or newer and npm.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Production checks:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+npm start
+```
 
-## Learn More
+## Architecture
 
-To learn more about Next.js, take a look at the following resources:
+The App Router entry point in `app/page.tsx` composes the page from focused components:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```mermaid
+flowchart TD
+  Layout[app/layout.tsx\nMetadata and font] --> Page[app/page.tsx]
+  Page --> Header[Header]
+  Page --> Main[main content]
+  Main --> Sections[Hero and training sections]
+  Main --> CTA[Consultation CTA and Testimonials]
+  Page --> Footer[Footer CTA and Footer]
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Repeated content is kept as local data arrays in its owning component. Components map over those arrays to keep repeated markup consistent and make content changes safer. Images live in `public/images` and use `next/image`.
 
-## Deploy on Vercel
+## Responsive implementation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The Figma desktop canvas remains `1440px` at the `lg` breakpoint, including existing desktop grids, fixed image dimensions, spacing, and visual treatment. Mobile behavior is added with Tailwind utilities:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Page shells become `w-full` below `lg` to prevent horizontal overflow.
+- Desktop two-column layouts stack into one column on mobile.
+- Fixed desktop images become fluid on mobile and restore their Figma dimensions at `lg`.
+- Headings, body text, padding, grids, footer columns, and CTA layouts scale for narrow screens.
+- Navigation collapses to the existing accessible menu toggle on mobile.
+
+The layout is intended to be checked at 425px, 768px, and 1280px or wider. No custom media queries were added; all responsive behavior uses Tailwind modifiers.
+
+## Accessibility and quality decisions
+
+- Semantic `header`, `nav`, `main`, `section`, `article`, and `footer` elements are used.
+- Images have descriptive alternative text.
+- Native links and buttons remain keyboard accessible and include focus states where appropriate.
+- Decorative SVG icons use `aria-hidden`.
+- No UI framework or copied component kit is used.
+
+## Known issues and assumptions
+- Navigation and CTA links marked `#` are placeholders because no destination pages were specified.
+- The account button is presentational because no account flow was specified.
+
+## AI disclosure
+
+AI coding assistance(Vscode Agent) was used to review the implementation, identify and remove deadcode, and for brainstorming difficult problems.
+
+
+Arthured by: Enemuor Chidubem.
+Email: enemuorchidubem95@gmail.com.
